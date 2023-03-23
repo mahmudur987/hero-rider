@@ -161,7 +161,7 @@ const UserList = () => {
         SetblockUsers(newuserlist);
         const user = blockUsers.find((user) => user._id === id);
         user.block = false;
-        Setusers([...blockUsers, user]);
+        Setusers([...users, user]);
       });
   };
   const markuser = (id) => {
@@ -170,7 +170,7 @@ const UserList = () => {
   };
 
   const manyBlock = () => {
-    let url = `http://localhost:5000/users`;
+    let url = `https://hero-rider-server-mu.vercel.app/users`;
     fetch(url, {
       method: "PATCH", // or 'PUT'
       headers: {
@@ -185,6 +185,8 @@ const UserList = () => {
           ids.map((id) => {
             const newusers = users.filter((user) => user._id !== id);
             Setusers(newusers);
+            co;
+            console.log(newusers);
           });
         }
       });
