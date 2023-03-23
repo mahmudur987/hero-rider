@@ -15,7 +15,7 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
   const [user, Setuser] = useState("");
   const [loading, Setloading] = useState(true);
-
+  const [search, Setsearch] = useState("");
   const signUp = (email, password) => {
     Setloading(true);
 
@@ -47,7 +47,7 @@ const UserContext = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       Setuser(currentUser);
       Setloading(false);
-      console.log("currentuser", currentUser);
+      // console.log("currentuser", currentUser);
     });
     return () => {
       unsubscribe();
@@ -63,6 +63,8 @@ const UserContext = ({ children }) => {
     logout,
     Setloading,
     Setuser,
+    search,
+    Setsearch,
   };
   return (
     <div>

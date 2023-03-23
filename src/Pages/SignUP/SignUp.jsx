@@ -172,13 +172,13 @@ const SignUp = () => {
         <div className="card flex-shrink-0 w-full max-w-3xl shadow-2xl ">
           <form onSubmit={handleSignup}>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 w-full p-5 ">
-              <div className="form-control">
+              <div className="form-control  ">
                 <label className="label">
                   <span className="label-text">Your Name</span>
                 </label>
                 <input
                   type="text"
-                  className="input input-bordered"
+                  className="input  input-bordered"
                   name="name"
                 />
               </div>

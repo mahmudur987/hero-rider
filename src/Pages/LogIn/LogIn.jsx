@@ -5,12 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { authContext } from "../../Context/UserContext";
 
 const LogIn = () => {
-  const { user, login, Setloading, loading } = useContext(authContext);
+  const { login, Setloading, loading } = useContext(authContext);
   const [Error, SetError] = useState("");
 
   const naviget = useNavigate();
-
-  console.log(user);
 
   const handleLogin = (e) => {
     Setloading(true);
@@ -22,7 +20,7 @@ const LogIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        naviget("/profile");
+        naviget("/");
       })
       .then((err) => console.error(err));
     console.log(email, password);
@@ -42,14 +40,14 @@ const LogIn = () => {
   }
 
   return (
-    <div className="hero min-h-[600px]  bg-base-200">
-      <div className="hero-content flex-col max-w-[500px] ">
-        <div className="text-center lg:text-left ">
+    <div className="hero min-h-screen">
+      <div className="hero-content flex-col">
+        <div className="text-center  ">
           <h1 className="text-5xl font-bold ">Log In now!</h1>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-3xl shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
-            <div className="form-control">
+            <div className="form-control w-full">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
